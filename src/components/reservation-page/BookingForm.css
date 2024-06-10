@@ -1,0 +1,109 @@
+.booking-form-container,
+.success-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
+  background-color: #444646;
+  margin: 0;
+}
+
+.booking-form {
+  display: grid;
+  gap: 15px;
+  /* max-width: 400px; */
+  width: 80%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.success-screen-card {
+  display: grid;
+  gap: 15px;
+  /* max-width: 400px; */
+  width: 80%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  margin-bottom: 100px;
+}
+
+.booking-form h1 {
+  text-align: center;
+}
+
+.booking-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="tel"],
+.booking-form input[type="date"],
+.booking-form input[type="number"],
+.booking-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.booking-form input[type="submit"] {
+  background-color: #f4ce14;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 16px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.booking-form input[type="submit"]:hover {
+  background-color: #d3b314;
+  cursor: pointer;
+}
+
+/* Form validation */
+
+.booking-form input[type="submit"].disabled {
+  background-color: #ddd;
+}
+
+.booking-form input[type="submit"].disabled:hover {
+  background-color: #ddd;
+  cursor: default;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.booking-form .error-message {
+  color: green;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Success Screen */
+
+.success-animation {
+  font-size: 4rem;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.success-screen-container h1 {
+  margin-bottom: 1rem;
+}
+
+.success-screen-container button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
