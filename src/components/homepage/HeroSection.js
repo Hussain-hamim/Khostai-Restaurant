@@ -10,7 +10,7 @@ function HeroSection() {
           <h1>Khostai Restaurant</h1>
           <h2>Khost</h2>
           <p>
-            We are a family owned local restaurant, focused on traditional
+            We are a family owned modern restaurant, focused on traditional
             recipes served with a modern twist.
           </p>
           <Link to="/reservations">

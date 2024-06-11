@@ -18,19 +18,19 @@ function SpecialsSection() {
       <div className="specials-cards">
         <SpecialsCard
           picture={greekSaladImage}
-          title="Greek Salad"
+          title="Kabuli Pulao"
           description="Fresh vegetables, feta cheese, olives, and olive oil."
           price="$9.99"
         />
         <SpecialsCard
           picture={bruscettaImage}
-          title="Bruschetta"
+          title="Traditional Food"
           description="Toasted bread topped with tomatoes, garlic, basil, and olive oil."
           price="$6.99"
         />
         <SpecialsCard
           picture={lemonDessertImage}
-          title="Lemon Dessert"
+          title="Chopan Kabob"
           description="Delicious lemon-flavored dessert, perfect to refresh your palate."
           price="$5.99"
         />
