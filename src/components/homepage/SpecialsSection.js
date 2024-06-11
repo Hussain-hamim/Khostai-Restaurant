@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SpecialsCard from "./SpecialsCard";
 
 import greekSaladImage from "../../images/greek salad.jpg";
-import bruscettaImage from "../../images/bruchetta.png";
+import bruscettaImage from "../../images/bruchetta.jpg";
 import lemonDessertImage from "../../images/lemon dessert.jpg";
 
 function SpecialsSection() {
