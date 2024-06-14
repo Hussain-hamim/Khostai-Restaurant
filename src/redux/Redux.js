@@ -1,7 +1,7 @@
 import React from "react";
 import * as actions from "./actions";
-// import store from "./customStore";
 import store from "./store";
+// import store from "./customStore";
 
 const Redux = () => {
   store.subscribe(() => {
@@ -9,8 +9,9 @@ const Redux = () => {
   });
 
   store.dispatch(actions.bugAdded("bug 1"));
-
-  console.log("hello");
+  store.dispatch(actions.bugAdded("bug 2"));
+  store.dispatch(actions.bugAdded("bug 3"));
+  store.dispatch(actions.bugResolved(1));
 
   return <div>Redux</div>;
 };
