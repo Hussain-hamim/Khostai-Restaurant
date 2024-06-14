@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 let lastId = 0;
 
 const slice = createSlice({
-  name: "bug",
+  name: "bugs",
   initialState: [],
   reducers: {
     // action => action handlers
