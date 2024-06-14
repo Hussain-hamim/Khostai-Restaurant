@@ -1,6 +1,7 @@
 import React from "react";
 import * as actions from "./actions";
-import store from "./customStore";
+// import store from "./customStore";
+import store from "./store";
 
 const Redux = () => {
   store.subscribe(() => {
