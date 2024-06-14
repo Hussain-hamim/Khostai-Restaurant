@@ -5,6 +5,8 @@ export const bugAdded = createAction("bugAdded"); // we get action object
 export const bugRemoved = createAction("bugRemoved");
 export const bugResolved = createAction("bugResolved");
 
+// // reducer
+let lastId = 0;
 export default createReducer([], {
   // key: value
   // action: function (event => event handler)
@@ -26,7 +28,7 @@ export default createReducer([], {
   },
 });
 
-// // reducer
+// // // reducer
 // let lastId = 0;
 // export default function reducer(state = [], action) {
 //   switch (action.type) {
