@@ -76,6 +76,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 0 0;
+  /* max-width: 70%; */
 }
 
 .Hero-Text {
