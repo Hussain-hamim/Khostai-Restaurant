@@ -13,5 +13,7 @@ const slice = createSlice({
   },
 });
 
+// console.log(projects);
+
 export const { addProject } = slice.actions;
 export default slice.reducer;

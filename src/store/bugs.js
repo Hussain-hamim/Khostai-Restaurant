@@ -29,8 +29,6 @@ const slice = createSlice({
 export const { bugAdded, bugResolved, bugRemoved } = slice.actions;
 export default slice.reducer;
 
-console.log(slice);
-
 // // action creators
 // export const bugAdded = createAction("bugAdded"); // we get action object
 // export const bugRemoved = createAction("bugRemoved");

@@ -16,6 +16,12 @@ const Redux = () => {
   store.dispatch(actions.bugAdded({ description: "bug 3" }));
   store.dispatch(actions.bugResolved({ id: 1 }));
 
-  return <div>Redux</div>;
+  console.log("store", store);
+
+  return (
+    <>
+      <div>Redux</div>
+    </>
+  );
 };
 export default Redux;
