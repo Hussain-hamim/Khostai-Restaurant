@@ -13,7 +13,7 @@ import { addUser } from "./store/users";
 
 const Redux = () => {
   store.subscribe(() => {
-    console.log("Store changed!");
+    console.log("Store changed!...");
   });
 
   // store.dispatch(addProject({ name: "project 1" }));
@@ -24,12 +24,13 @@ const Redux = () => {
   store.dispatch(bugAdded({ description: "bug 1" }));
   store.dispatch(bugAdded({ description: "bug 2" }));
   store.dispatch(bugAdded({ description: "bug 3" }));
-  store.dispatch(assignUser({ bugId: 1, userId: 1 }));
+
+  store.dispatch(assignUser({ bugId: 1, userId: 1 })); // normalize state
+
   store.dispatch(bugResolved({ id: 1 }));
 
   const bugs = getUnresolvedBugs(store.getState());
   console.log("unresolved bugs: ", bugs);
-  // // console.log("store", store);
 
   const bugsRes = getResolvedBugs(store.getState());
   console.log("resolved bugs: ", bugsRes);

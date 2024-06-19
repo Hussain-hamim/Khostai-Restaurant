@@ -38,9 +38,9 @@ export default slice.reducer;
 
 // selector
 export const getUnresolvedBugs = createSelector(
-  (state) => state.entities.bugs,
-  (state) => state.entities.projects,
-  (bugs, projects) => bugs.filter((bug) => !bug.resolved)
+  (state) => state.entities.bugs, // selector fn or input fn for result fn
+  (state) => state.entities.projects, // selector fn or input fn
+  (bugs, projects) => bugs.filter((bug) => !bug.resolved) //result fn
 );
 
 export const getResolvedBugs = createSelector(
