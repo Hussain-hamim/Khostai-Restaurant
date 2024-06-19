@@ -9,6 +9,7 @@ import {
 } from "./store/bugs";
 import { addProject } from "./store/projects";
 import { addUser } from "./store/users";
+import { useEffect, useState } from "react";
 // import store from "./customStore";
 
 const Redux = () => {
@@ -18,35 +19,29 @@ const Redux = () => {
 
   // store.dispatch(addProject({ name: "project 1" }));
   store.dispatch(addUser({ name: "hussain" }));
-  store.dispatch(addUser({ name: "hamim" }));
+  // store.dispatch(addUser({ name: "hamim" }));
 
-  // in the reducer we extract the description from the payload object
-  store.dispatch(bugAdded({ description: "bug 1" }));
-  store.dispatch(bugAdded({ description: "bug 2" }));
-  store.dispatch(bugAdded({ description: "bug 3" }));
+  // // in the reducer we extract the description from the payload object
+  // store.dispatch(bugAdded({ description: "bug 1" }));
+  // store.dispatch(bugAdded({ description: "bug 2" }));
+  // store.dispatch(bugAdded({ description: "bug 3" }));
 
-  store.dispatch(assignUser({ bugId: 1, userId: 1 })); // normalize state
+  // store.dispatch(assignUser({ bugId: 1, userId: 1 })); // normalize state
 
-  store.dispatch(bugResolved({ id: 1 }));
+  // store.dispatch(bugResolved({ id: 1 }));
 
-  const bugs = getUnresolvedBugs(store.getState());
-  console.log("unresolved bugs: ", bugs);
+  // const bugs = getUnresolvedBugs(store.getState());
+  // console.log("unresolved bugs: ", bugs);
 
-  const bugsRes = getResolvedBugs(store.getState());
-  console.log("resolved bugs: ", bugsRes);
+  // const bugsRes = getResolvedBugs(store.getState());
+  // console.log("resolved bugs: ", bugsRes);
 
-  const bug = getBugsByUser(1)(store.getState());
-  console.log("userId 1 bug: ", bug);
+  // const bug = getBugsByUser(1)(store.getState());
+  // console.log("userId 1 bug: ", bug);
 
   return (
     <>
       <div>Redux</div>
-      <ul>
-        {bugs.map((bug) => {
-          <li>{bug.description}</li>;
-        })}
-      </ul>
-      <p>{bugs.description}</p>
     </>
   );
 };
