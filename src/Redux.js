@@ -1,16 +1,11 @@
 import configureStore from "./store/configureStore";
-import * as actions from "./store/api";
+// import * as actions from "./store/api";
+import { loadBugs } from "./store/bugs";
 
 const Redux = () => {
   const store = configureStore();
 
-  store.dispatch(
-    actions.apiCallBegan({
-      url: "/bugs",
-      onSuccess: "bugs/bugsReceived",
-      // onError: actions.apiCallFailed.type,
-    })
-  );
+  store.dispatch(loadBugs());
 
   return (
     <>
