@@ -7,7 +7,7 @@ const Redux = () => {
   store.dispatch(
     actions.apiCallBegan({
       url: "/bugs",
-      onSuccess: "bugsReceived",
+      onSuccess: "bugs/bugsReceived",
       // onError: actions.apiCallFailed.type,
     })
   );
