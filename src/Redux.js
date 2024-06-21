@@ -1,17 +1,16 @@
-import { assignUser } from "./store/bugs";
 import configureStore from "./store/configureStore";
+import * as actions from "./store/api";
 
 const Redux = () => {
   const store = configureStore();
 
-  store.dispatch({
-    type: "apiCallBegan",
-    payload: {
+  store.dispatch(
+    actions.apiCallBegan({
       url: "/bugs",
       onSuccess: "bugsReceived",
-      onError: "apiRequestFailed",
-    },
-  });
+      // onError: actions.apiCallFailed.type,
+    })
+  );
 
   return (
     <>
