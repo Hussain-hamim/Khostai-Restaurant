@@ -4,6 +4,7 @@ import logger from "./middleware/logger";
 import toast from "./middleware/toast";
 import func from "./middleware/func";
 import loggerMiddleware from "./middleware/loggerMiddleware";
+import api from "./middleware/api";
 
 export default function () {
   return configureStore({
@@ -14,6 +15,7 @@ export default function () {
       toast,
       func,
       loggerMiddleware,
+      api,
     ],
   });
 }

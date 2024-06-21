@@ -4,7 +4,14 @@ import configureStore from "./store/configureStore";
 const Redux = () => {
   const store = configureStore();
 
-  // store.dispatch(assignUser({ bugId: 1, userId: 1 }));
+  store.dispatch({
+    type: "apiCallBegan",
+    payload: {
+      url: "/bugs",
+      onSuccess: "bugsReceived",
+      onError: "apiRequestFailed",
+    },
+  });
 
   return (
     <>
