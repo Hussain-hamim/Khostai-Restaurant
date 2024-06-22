@@ -1,6 +1,12 @@
 import configureStore from "./store/configureStore";
 // import * as actions from "./store/api";
-import { addBug, bugAdded, loadBugs, resolvedBug } from "./store/bugs";
+import {
+  addBug,
+  assignBugToUser,
+  bugAdded,
+  loadBugs,
+  resolvedBug,
+} from "./store/bugs";
 
 const Redux = () => {
   const store = configureStore();
@@ -10,8 +16,9 @@ const Redux = () => {
   store.dispatch(addBug({ description: "a new bug" }));
 
   setTimeout(() => {
-    // store.dispatch(loadBugs());
-    store.dispatch(resolvedBug(1));
+    store.dispatch(loadBugs());
+    // store.dispatch(resolvedBug(1));
+    store.dispatch(assignBugToUser(1, 4));
   }, 200);
 
   return (
