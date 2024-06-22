@@ -34,11 +34,7 @@ const slice = createSlice({
     },
 
     bugAdded: (bugs, action) => {
-      bugs.list.push({
-        id: ++lastId,
-        description: action.payload.description,
-        resolved: false,
-      });
+      bugs.list.push(action.payload);
     },
 
     bugResolved: (bugs, action) => {
@@ -66,6 +62,8 @@ export default slice.reducer;
 // action creator
 const url = "/bugs";
 
+console.log(moment().dayOfYear());
+
 export const loadBugs = () => (dispatch, getState) => {
   const { lastFetch } = getState().entities.bugs;
 
@@ -82,13 +80,13 @@ export const loadBugs = () => (dispatch, getState) => {
   );
 };
 
-// export const loadBugs = () =>
-//   apiCallBegan({
-//     url,
-//     onStart: bugsRequested.type,
-//     onSuccess: bugsReceived.type,
-//     onError: bugsRequestFailed.type,
-//   });
+export const addBug = (bug) =>
+  apiCallBegan({
+    url,
+    method: "post",
+    data: bug,
+    onSuccess: bugAdded.type,
+  });
 
 // selector
 export const getUnresolvedBugs = createSelector(
