@@ -1,4 +1,4 @@
-import { addBug } from "../bugs";
+import { addBug, getUnresolvedBugs } from "../bugs";
 import configureStore from "../configureStore";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
@@ -37,5 +37,17 @@ describe("bugSlice", () => {
 
     // assert
     expect(store.getState().entities.bugs.list).toHaveLength(0);
+  });
+
+  describe("getUnresolvedBugs", () => {
+    it("getUnresolvedBugs", () => {
+      getUnresolvedBugs({
+        entities: {
+          bugs: {
+            list: [{ id: 1, resolved: true }, { id: 1 }, { id: 1 }],
+          },
+        },
+      });
+    });
   });
 });
