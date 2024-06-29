@@ -1,4 +1,4 @@
-import { addBug, getUnresolvedBugs } from "../bugs";
+import { addBug, getUnresolvedBugs, resolvedBug } from "../bugs";
 import configureStore from "../configureStore";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
@@ -11,6 +11,28 @@ describe("bugSlice", () => {
   beforeEach(() => {
     fakeAxios = new MockAdapter(axios);
     store = configureStore();
+  });
+
+  it("should mark the bug resolved if it saved to the store", async () => {
+    // aaa
+    fakeAxios.onPatch("/bugs/1").reply(200, { id: 1, resolved: true });
+    fakeAxios.onPost("/bugs").reply(200, { id: 1 });
+
+    await store.dispatch(addBug({}));
+    await store.dispatch(resolvedBug(1));
+
+    expect(store.getState().entities.bugs.list[0].resolved).toBe(true);
+  });
+
+  it("should not mark the the bug resolved if it saved to the store", async () => {
+    // aaa
+    fakeAxios.onPatch("/bugs/1").reply(500);
+    fakeAxios.onPost("/bugs").reply(200, { id: 1 });
+
+    await store.dispatch(addBug({}));
+    await store.dispatch(resolvedBug(1));
+
+    expect(store.getState().entities.bugs.list[0].resolved).not.toBe(true);
   });
 
   it("should handle the addBug action", async () => {

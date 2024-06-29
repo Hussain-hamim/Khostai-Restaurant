@@ -6,12 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import Redux from "./Redux";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
+import ReactDev from "./ReactDev";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   // <Provider store={configureStore}>
-  <Redux />
+  <ReactDev />
   // </Provider>
   //  </React.StrictMode>
 );

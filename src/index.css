@@ -6,6 +6,15 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.game-board {
+  padding: 20px;
+}
+.square {
+  margin: 2px;
+  width: 22px;
+  height: 22px;
 }
