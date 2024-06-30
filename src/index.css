@@ -13,8 +13,10 @@ code {
 .game-board {
   padding: 20px;
 }
+
 .square {
   margin: 2px;
   width: 22px;
   height: 22px;
+  background-color: orchid;
 }

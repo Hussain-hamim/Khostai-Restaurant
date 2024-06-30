@@ -8,17 +8,26 @@ function Square({ value, onSquareClick }) {
   );
 }
 
+/** the board comp represent the 3x3 grid of square.
+ * props:
+ * xIsNext: a boolean indicating the next player
+ * squares: an array represent the current state of the board
+ * onPlay: a fn to handle move
+ */
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
+    /** return if there is already a winner or the square is filled */
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
+    /** otherwise it create a copy of the squares array, update it with x or o depending on xIsNext */
     const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
       nextSquares[i] = "O";
     }
+    // call onPlay with the updated squares
     onPlay(nextSquares);
   }
 
@@ -51,23 +60,22 @@ function Board({ xIsNext, squares, onPlay }) {
     </>
   );
 }
-
+/** manages the state of the game and handles the game's history */
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
-  const currentSquares = history[currentMove];
+  const [history, setHistory] = useState([Array(9).fill(null)]); // an array of board state, initial on empty board
+  const [currentMove, setCurrentMove] = useState(0); // a num represent the index of the current move
+  //xIsNext: a boolean showing whether the next player is X, determined by whether the current move is even
+  const xIsNext = currentMove % 2 === 0;
+  const currentSquares = history[currentMove]; // the state of the board at the current move
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
-    setXIsNext(!xIsNext);
+    setCurrentMove(nextHistory.length - 1);
   }
 
   function jumpTo(nextMove) {
-    // Todo
     setCurrentMove(nextMove);
-    setXIsNext(nextMove % 2 === 0); // if num is even
   }
 
   const moves = history.map((squares, move) => {
@@ -77,7 +85,6 @@ export default function Game() {
     } else {
       description = "Go to game start";
     }
-
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
