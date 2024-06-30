@@ -69,15 +69,22 @@ export default function Game() {
   const currentSquares = history[currentMove]; // the state of the board at the current move
 
   function handlePlay(nextSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
-    setHistory(nextHistory);
-    setCurrentMove(nextHistory.length - 1);
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares]; // it slice the history up the current move, adds the new board state,
+    setHistory(nextHistory); // update the history,
+    setCurrentMove(nextHistory.length - 1); // set the current move to the end of the new history
   }
 
+  /** this fn sets the current move to the specified move,
+   * allowing users to jump to any previous move in the game
+   */
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
   }
 
+  /** it map over history to create a list of buttons,
+   * each representing a move in the game's history.
+   * clicking a button call jumpTo with the corresponding move index
+   */
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
@@ -103,7 +110,12 @@ export default function Game() {
     </div>
   );
 }
-
+/** determine the winner of the game,
+ *lines: an array of all possible winning combination,
+ loop: it iterate over the lines array and checks if the values at the three positions (a, b, c) in any line are equal and non-null,
+ if a winning combination is found, it returns the value X or O of the winning player, 
+ if no winner is found it return null 
+ */
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -116,7 +128,8 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+    const [a, b, c] = lines[i]; // for each combination the, the indices a, b and c are extracted, these represent the position on the board that need to be checked
+
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
