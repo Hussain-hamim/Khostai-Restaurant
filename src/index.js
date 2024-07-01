@@ -7,6 +7,7 @@ import Redux from "./Redux";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import ReactDev from "./ReactDev";
+import "bootstrap/dist/css/bootstrap.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
