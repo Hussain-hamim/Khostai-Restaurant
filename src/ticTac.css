@@ -5,6 +5,7 @@ body {
 .game {
   /* display: flex; */
   /* flex-direction: row; */
+  /* -ms-flex-align: center; */
   background-color: slategray;
 }
 
